@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+<head>
+{{> head}}
+</head>
+<body class="page-404">
+{{> sprite}}
+{{> header}}
+<main id="main" class="err">
+  <div>
+    <p class="err__num gold-text">404</p>
+    <h1 class="page-title" style="font-size:clamp(32px,4vw,52px)">Этот лист календаря <em class="gold-text">потерялся</em></h1>
+    <p class="lead" style="margin:0 auto 34px">Страница не найдена. Возможно, её перенесли или в адресе опечатка.</p>
+    <div class="hero__actions">
+      <a class="btn btn--gold" href="/index.html">На главную<svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn" href="/articles/index.html">Журнал красоты</a>
+    </div>
+  </div>
+</main>
+{{> footer}}
+{{> overlays}}
+</body>
+</html>

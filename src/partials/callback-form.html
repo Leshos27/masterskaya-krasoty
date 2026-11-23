@@ -1,0 +1,36 @@
+<form class="cb-form" data-callback novalidate>
+  <div class="form-grid">
+    <div class="field">
+      <label for="cb-name-{{form_id}}">Имя</label>
+      <input class="input" id="cb-name-{{form_id}}" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться">
+    </div>
+    <div class="field">
+      <label for="cb-phone-{{form_id}}">Телефон *</label>
+      <input class="input" id="cb-phone-{{form_id}}" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required data-phone>
+      <span class="field__error" aria-live="polite"></span>
+    </div>
+    <div class="field full">
+      <label for="cb-time-{{form_id}}">Когда удобно поговорить</label>
+      <select class="input" id="cb-time-{{form_id}}" name="time">
+        <option>Как можно скорее</option>
+        <option>Утром (9:00–12:00)</option>
+        <option>Днём (12:00–17:00)</option>
+        <option>Вечером (17:00–21:00)</option>
+      </select>
+    </div>
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label class="check full">
+      <input type="checkbox" name="consent" required>
+      <span class="check__box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+      <span>Согласен(на) на <a href="{{R}}privacy.html" target="_blank">обработку персональных данных</a></span>
+    </label>
+    <div class="full">
+      <button class="btn btn--gold btn--block" type="submit"><span>Жду звонка</span><svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    </div>
+  </div>
+</form>
+<div class="success cb-success" hidden>
+  <svg class="success__mark" viewBox="0 0 104 104" aria-hidden="true"><circle pathLength="1" cx="52" cy="52" r="50"/><path pathLength="1" d="M32 53l14 14 27-29"/></svg>
+  <h3>Спасибо! Заявка принята</h3>
+  <p>Администратор перезвонит вам в ближайшее время в рабочие часы салона.</p>
+</div>

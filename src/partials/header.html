@@ -1,0 +1,37 @@
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+<header class="header" data-header>
+  <div class="container header__inner">
+    <a class="logo" href="{{home_link}}" aria-label="Мастерская красоты — на главную">
+      <svg class="logo__mark" aria-hidden="true"><use href="#logo"/></svg>
+      <span class="logo__text"><span class="logo__name">Мастерская <em>красоты</em></span><span class="logo__sub">Салон · Реутов</span></span>
+    </a>
+    <nav class="nav" aria-label="Основное меню">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="{{home}}#services" data-nav="services">Услуги</a></li>
+        <li><a class="nav__link" href="{{home}}#prices" data-nav="prices">Цены</a></li>
+        <li><a class="nav__link" href="{{home}}#wellness" data-nav="wellness">Велнес</a></li>
+        <li><a class="nav__link{{nav_journal}}" href="{{R}}articles/index.html" data-nav="journal">Журнал</a></li>
+        <li><a class="nav__link" href="{{home}}#contacts" data-nav="contacts">Контакты</a></li>
+      </ul>
+    </nav>
+    <a class="header__phone" href="tel:{{phone_href}}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>{{phone}}</span></a>
+    <button class="btn btn--gold btn--sm header__cta" type="button" data-book>Записаться</button>
+    <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu" data-burger><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+  <ul class="mobile-menu__list">
+    <li><a href="{{home}}#services" style="--i:0">Услуги <small>I</small></a></li>
+    <li><a href="{{home}}#prices" style="--i:1">Цены <small>II</small></a></li>
+    <li><a href="{{home}}#wellness" style="--i:2">Велнес-кабинет <small>III</small></a></li>
+    <li><a href="{{R}}articles/index.html" style="--i:3">Журнал красоты <small>IV</small></a></li>
+    <li><a href="{{home}}#booking" style="--i:4">Онлайн-запись <small>V</small></a></li>
+    <li><a href="{{home}}#contacts" style="--i:5">Контакты <small>VI</small></a></li>
+  </ul>
+  <div class="mobile-menu__foot">
+    <a class="tel" href="tel:{{phone_href}}">{{phone}}</a>
+    <span class="muted">{{address_short}} · {{hours}}</span>
+    <button class="btn btn--gold btn--block" type="button" data-callback-open>Обратный звонок</button>
+  </div>
+</div>

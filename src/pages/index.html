@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="ru">
+<head>
+{{> head}}
+<script type="application/ld+json">{{jsonld}}</script>
+</head>
+<body id="top" class="page-home">
+{{> sprite}}
+
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__half preloader__half--top"></div>
+  <div class="preloader__half preloader__half--bottom"></div>
+  <div class="preloader__line"></div>
+  <svg class="preloader__mark" viewBox="0 0 132 132">
+    <circle pathLength="420" cx="66" cy="66" r="62"/>
+    <circle pathLength="420" cx="66" cy="66" r="55" style="animation-delay:.2s"/>
+    <text class="fill-in" x="66" y="80" text-anchor="middle">МК</text>
+  </svg>
+</div>
+
+{{> header}}
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__bg"></div>
+    <canvas class="hero__canvas" data-particles aria-hidden="true"></canvas>
+    <svg class="hero__ornament" viewBox="0 0 1000 1000" aria-hidden="true" data-parallax>
+      <defs>
+        <linearGradient id="heroGold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#6d4f1e"/><stop offset=".5" stop-color="#f3dfa2"/><stop offset="1" stop-color="#7a5a24"/>
+        </linearGradient>
+        <radialGradient id="heroFade" cx="50%" cy="50%" r="50%">
+          <stop offset=".55" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </radialGradient>
+        <mask id="heroMask"><rect width="1000" height="1000" fill="url(#heroFade)"/></mask>
+      </defs>
+      <g fill="none" stroke="url(#heroGold)" mask="url(#heroMask)">
+        <g class="rot-slow"><circle cx="500" cy="500" r="476" stroke-width=".7" stroke-dasharray="2 9"/><circle cx="500" cy="500" r="452" stroke-width=".9"/>
+          <path d="M500 40l9 9-9 9-9-9zM500 942l9 9-9 9-9-9zM40 500l9-9 9 9-9 9zM942 500l9-9 9 9-9 9z" fill="#c9a45c" stroke="none"/></g>
+        <g class="rot-rev"><circle cx="500" cy="500" r="410" stroke-width=".6" stroke-dasharray="70 14 4 14"/></g>
+        <g class="pulse">{{hero_rays}}</g>
+        <circle cx="500" cy="500" r="318" stroke-width=".8"/>
+        <circle cx="500" cy="500" r="306" stroke-width=".4" stroke-dasharray="1 5"/>
+      </g>
+    </svg>
+
+    <div class="container hero__content" data-hero-content>
+      <span class="eyebrow eyebrow--center" data-hero style="--d:0">Салон красоты · Реутов</span>
+      <h1 class="h1" id="hero-title" data-split>
+        <span class="line line--1">Мастерская</span>
+        <span class="line line--2"><span class="word gold-text">красоты</span></span>
+      </h1>
+      <p class="hero__sub" data-hero style="--d:1">Стрижки и окрашивание, маникюр и педикюр, массажный кабинет, гирудотерапия, хиджама и косметология — всё в одном месте, с вниманием к каждой детали.</p>
+      <div class="hero__actions" data-hero style="--d:2">
+        <button class="btn btn--gold" type="button" data-book><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Записаться онлайн</button>
+        <button class="btn" type="button" data-callback-open><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Обратный звонок</button>
+      </div>
+      <a class="hero__address" href="#contacts" data-hero style="--d:3"><span class="dot" aria-hidden="true"></span><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>{{address_short}} · {{hours_short}}</a>
+    </div>
+
+    <div class="hero__side hero__side--l" aria-hidden="true"><b>55°45′</b> с.ш. · Реутов</div>
+    <div class="hero__side hero__side--r" aria-hidden="true">Ул. Октября, <b>44</b></div>
+    <a class="scroll-cue" href="#services" aria-label="Листать вниз"><span>Листайте</span><i></i></a>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">{{marquee}}</div>
+  </div>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>Услуги салона</span>
+          <h2 class="h2" id="services-title" data-reveal style="--i:1">Семь направлений <em class="gold-text">красоты</em><br>и здоровья</h2>
+        </div>
+        <p class="lead" data-reveal style="--i:2">От стрижки к празднику до курса массажа и велнес-процедур. Выберите направление — и запишитесь онлайн за минуту.</p>
+      </div>
+      <div class="services-grid" data-stagger>
+        {{services_cards}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section section--alt section--deco" id="about" aria-labelledby="about-title">
+    <div class="container about">
+      <div class="arch" data-reveal="scale">
+        <div class="arch__inner">
+          <svg class="arch__rays" viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g stroke="currentColor" fill="none">{{arch_rays}}</g>
+          </svg>
+          <svg class="arch__seal" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="sealPath" d="M100 100m-78 0a78 78 0 1 1 156 0a78 78 0 1 1-156 0"/></defs>
+            <circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width=".8"/>
+            <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width=".6"/>
+            <circle cx="100" cy="100" r="55" fill="none" stroke="currentColor" stroke-width=".4" stroke-dasharray="1 3"/>
+            <g class="ring-text"><text><textPath href="#sealPath" startOffset="0" textLength="486" lengthAdjust="spacing">Мастерская красоты · Реутов · ул. Октября, 44 ·</textPath></text></g>
+            <text class="arch__mono" x="100" y="117" text-anchor="middle">МК</text>
+          </svg>
+          <span class="arch__caption">Красота — это ремесло</span>
+        </div>
+        <div class="arch__badge"><b class="gold-text">7</b><span>направлений<br>под одной крышей</span></div>
+      </div>
+
+      <div>
+        <span class="eyebrow" data-reveal>О салоне</span>
+        <h2 class="h2" id="about-title" data-reveal style="--i:1">Мастерская, где<br>красоту <em class="gold-text">создают руками</em></h2>
+        <p class="lead" data-reveal style="--i:2">Мы назвали салон мастерской, потому что относимся к своей работе как к ремеслу: внимательно, неторопливо и с уважением к деталям. Здесь можно обновить стрижку, сделать маникюр и педикюр, восстановиться на массаже или пройти курс велнес-процедур — не переезжая из салона в салон.</p>
+        <div class="features" data-stagger>
+          <div class="feature" data-reveal style="--i:3">
+            <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+            <div><h3>Стерильность</h3><p>Многоступенчатая обработка инструментов и одноразовые расходники.</p></div>
+          </div>
+          <div class="feature" data-reveal style="--i:4">
+            <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-gem"/></svg></span>
+            <div><h3>Профессиональная косметика</h3><p>Работаем на материалах, которым доверяем сами.</p></div>
+          </div>
+          <div class="feature" data-reveal style="--i:5">
+            <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></span>
+            <div><h3>Велнес-кабинет</h3><p>Гирудотерапия и хиджама в отдельном кабинете после консультации.</p></div>
+          </div>
+          <div class="feature" data-reveal style="--i:6">
+            <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></span>
+            <div><h3>Без спешки</h3><p>Время записи рассчитано так, чтобы мастер не торопился.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WELLNESS ============ -->
+  <section class="section" id="wellness" aria-labelledby="wellness-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>Велнес-кабинет</span>
+          <h2 class="h2" id="wellness-title" data-reveal style="--i:1">Гирудотерапия <em class="gold-text">и</em> хиджама</h2>
+        </div>
+        <p class="lead" data-reveal style="--i:2">Их часто путают, но это две разные процедуры. Хиджама — баночное кровопускание, гирудотерапия — лечение медицинскими пиявками. Коротко о главном:</p>
+      </div>
+      <div class="compare">
+        <article class="compare__card" data-reveal="left">
+          <div class="compare__head">
+            <svg class="service-card__icon draw" fill="none" stroke="currentColor" aria-hidden="true"><use href="#i-jar"/></svg>
+            <div><h3>Гирудотерапия</h3><p>Медицинские пиявки</p></div>
+          </div>
+          <dl class="compare__rows">
+            <div><dt>Как работает</dt><dd>Пиявка присасывается к точке на коже; действуют вещества её слюны, в том числе гирудин.</dd></div>
+            <div><dt>Ощущения</dt><dd>Лёгкий укол при укусе, дальше — почти ничего. Пиявка отпадает сама через 20–60 минут.</dd></div>
+            <div><dt>После</dt><dd>Ранка может подтекать до суток — накладываем стерильную повязку.</dd></div>
+            <div><dt>Курс</dt><dd>Обычно 5–10 сеансов с интервалом 5–7 дней.</dd></div>
+          </dl>
+          <a class="link-arrow" href="articles/girudoterapiya.html">Подробнее о гирудотерапии<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+        <div class="compare__vs" aria-hidden="true"><span>≠</span></div>
+        <article class="compare__card" data-reveal="right">
+          <div class="compare__head">
+            <svg class="service-card__icon draw" fill="none" stroke="currentColor" aria-hidden="true"><use href="#i-cups"/></svg>
+            <div><h3>Хиджама</h3><p>Баночное кровопускание</p></div>
+          </div>
+          <dl class="compare__rows">
+            <div><dt>Как работает</dt><dd>Вакуумные банки и несколько мелких поверхностных надсечек стерильным одноразовым инструментом.</dd></div>
+            <div><dt>Ощущения</dt><dd>Тянущее давление банок и лёгкое пощипывание при надсечках.</dd></div>
+            <div><dt>После</dt><dd>Округлые следы от банок проходят за несколько дней.</dd></div>
+            <div><dt>Вариант</dt><dd>«Сухой» вакуумный массаж банками — без надсечек.</dd></div>
+          </dl>
+          <a class="link-arrow" href="articles/hijama-i-girudoterapiya.html">Чем отличается от пиявок<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+      </div>
+      <p class="notice" data-reveal><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span><b>Имеются противопоказания. Необходима консультация специалиста.</b> Первый визит в велнес-кабинет начинается с консультации: специалист уточнит самочувствие и противопоказания. Процедуры не заменяют лечение, назначенное врачом.</span></p>
+    </div>
+  </section>
+
+  <!-- ============ PRICES (flip calendar) ============ -->
+  <section class="section section--alt section--deco" id="prices" aria-labelledby="prices-title">
+    <div class="container split">
+      <div class="split__aside">
+        <span class="eyebrow" data-reveal>Прейскурант</span>
+        <h2 class="h2" id="prices-title" data-reveal style="--i:1">Услуги <em class="gold-text">и цены</em></h2>
+        <p class="lead" data-reveal style="--i:2">Листайте календарь — каждый лист посвящён своему направлению. Нажмите на лист, проведите по нему пальцем или выберите раздел в списке.</p>
+        <div class="cal-tabs" role="tablist" aria-label="Разделы прейскуранта" data-flip-tabs="price-cal" data-reveal style="--i:3">
+          {{price_tabs}}
+        </div>
+      </div>
+      <div class="flipcal-col" data-reveal="scale">
+        <div class="flipcal" id="price-cal" data-flipcal aria-roledescription="перекидной календарь" aria-label="Прейскурант по разделам">
+          <div class="flipcal__hanger" aria-hidden="true">
+            <svg viewBox="0 0 600 74" preserveAspectRatio="none"><path d="M60 72 300 10 540 72" fill="none" stroke="#7a6a4c" stroke-width="1.6" vector-effect="non-scaling-stroke"/><circle cx="300" cy="10" r="7" fill="url(#goldGrad)"/><circle cx="300" cy="10" r="2.5" fill="#3a2c12"/></svg>
+          </div>
+          <div class="flipcal__board">
+            <div class="flipcal__binding"><span class="flipcal__label">Прейскурант · {{year}}</span></div>
+            <div class="flipcal__rings" aria-hidden="true"></div>
+            <div class="flipcal__stack" aria-live="polite">
+              {{price_pages}}
+            </div>
+          </div>
+          <div class="flipcal__controls">
+            <button class="flipcal__btn" type="button" data-flip-prev aria-label="Предыдущий лист"><svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+            <span class="flipcal__counter" data-flip-counter></span>
+            <button class="flipcal__btn" type="button" data-flip-next aria-label="Следующий лист"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+          <p class="flipcal__hint">Нажмите на лист, чтобы перевернуть</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JOURNAL (flip calendar) ============ -->
+  <section class="section" id="journal" aria-labelledby="journal-title">
+    <div class="container split split--rev">
+      <div class="flipcal-col" data-reveal="scale">
+        <div class="flipcal" id="journal-cal" data-flipcal aria-roledescription="отрывной календарь" aria-label="Статьи журнала">
+          <div class="flipcal__hanger" aria-hidden="true">
+            <svg viewBox="0 0 600 74" preserveAspectRatio="none"><path d="M60 72 300 10 540 72" fill="none" stroke="#7a6a4c" stroke-width="1.6" vector-effect="non-scaling-stroke"/><circle cx="300" cy="10" r="7" fill="url(#goldGrad)"/><circle cx="300" cy="10" r="2.5" fill="#3a2c12"/></svg>
+          </div>
+          <div class="flipcal__board">
+            <div class="flipcal__binding"><span class="flipcal__label">Журнал красоты</span></div>
+            <div class="flipcal__rings" aria-hidden="true"></div>
+            <div class="flipcal__stack" aria-live="polite">
+              {{journal_pages}}
+            </div>
+          </div>
+          <div class="flipcal__controls">
+            <button class="flipcal__btn" type="button" data-flip-prev aria-label="Предыдущий лист"><svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+            <span class="flipcal__counter" data-flip-counter></span>
+            <button class="flipcal__btn" type="button" data-flip-next aria-label="Следующий лист"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+          <p class="flipcal__hint">Листайте календарь статей</p>
+        </div>
+      </div>
+      <div class="split__aside">
+        <span class="eyebrow" data-reveal>Журнал красоты</span>
+        <h2 class="h2" id="journal-title" data-reveal style="--i:1">Советы <em class="gold-text">мастеров</em></h2>
+        <p class="lead" data-reveal style="--i:2">Пишем о том, о чём нас чаще всего спрашивают в салоне: уход, процедуры, противопоказания и маленькие профессиональные секреты.</p>
+        <div class="journal-list" data-reveal style="--i:3">
+          {{journal_list}}
+        </div>
+        <a class="btn" href="articles/index.html" style="margin-top:34px" data-reveal>Все статьи<svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOOKING ============ -->
+  <section class="section section--alt section--deco" id="booking" aria-labelledby="booking-title">
+    <div class="container booking-wrap">
+      <div>
+        <span class="eyebrow" data-reveal>Онлайн-запись</span>
+        <h2 class="h2" id="booking-title" data-reveal style="--i:1">Запишитесь <em class="gold-text">за минуту</em></h2>
+        <p class="lead" data-reveal style="--i:2">Выберите услугу, дату и время — администратор перезвонит, чтобы подтвердить визит и ответить на вопросы.</p>
+        <div class="booking-info" data-reveal style="--i:3">
+          <div class="info-row"><span class="info-row__icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span><div><small>Адрес</small><b>{{city}}, {{street}}</b></div></div>
+          <div class="info-row"><span class="info-row__icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span><div><small>Режим работы</small><b>{{hours}}</b></div></div>
+          <div class="info-row"><span class="info-row__icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span><div><small>Телефон</small><a href="tel:{{phone_href}}">{{phone}}</a></div></div>
+        </div>
+      </div>
+      <div class="panel" data-reveal="right">
+        <div data-booking>
+          <noscript><p>Для онлайн-записи включите JavaScript или позвоните нам: <a href="tel:{{phone_href}}">{{phone}}</a>.</p></noscript>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow eyebrow--center" data-reveal>Вопросы и ответы</span>
+        <h2 class="h2" id="faq-title" data-reveal style="--i:1">Часто <em class="gold-text">спрашивают</em></h2>
+      </div>
+      <div class="faq" data-reveal>
+        {{faq_items}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACTS ============ -->
+  <section class="section section--alt" id="contacts" aria-labelledby="contacts-title">
+    <div class="container contacts">
+      <div class="contacts__info">
+        <span class="eyebrow" data-reveal>Контакты</span>
+        <h2 class="h2" id="contacts-title" data-reveal style="--i:1;margin-bottom:6px">Ждём вас <em class="gold-text">в Реутове</em></h2>
+        <div class="contacts__cards" data-reveal style="--i:2">
+          <div class="c-card"><small>Адрес</small><b>{{street}}</b><span>{{city}}, {{region}}</span></div>
+          <div class="c-card"><small>Телефон</small><a href="tel:{{phone_href}}">{{phone}}</a><span>Звонки и мессенджеры</span></div>
+          <div class="c-card"><small>Режим работы</small><b>{{hours_short}}</b><span>{{hours}}</span></div>
+          <div class="c-card"><small>Мы рядом</small><b>Новокосино, Балашиха</b><span>Удобно добраться из соседних районов</span></div>
+        </div>
+        <div class="socials" data-reveal style="--i:3">
+          <a href="{{telegram}}" target="_blank" rel="noopener" aria-label="Telegram"><svg class="icon" aria-hidden="true"><use href="#i-telegram"/></svg></a>
+          <a href="{{whatsapp}}" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+          <a href="{{vk}}" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg class="icon" aria-hidden="true"><use href="#i-vk"/></svg></a>
+        </div>
+        <div class="panel" data-reveal style="--i:4">
+          <h3 class="bk-title">Обратный звонок</h3>
+          {{> callback-form:contacts}}
+        </div>
+      </div>
+      <div class="map-frame" data-reveal="clip">
+        <div class="map-frame__inner" data-map data-src="https://yandex.ru/map-widget/v1/?text={{map_query}}&amp;z=16">
+          <div class="map-frame__placeholder">
+            <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+            <b>{{city}}, {{street}}</b>
+            <span class="muted">Карта загружается…</span>
+          </div>
+        </div>
+        <a class="btn btn--gold btn--sm map-frame__open" href="https://yandex.ru/maps/?text={{map_query}}" target="_blank" rel="noopener">Построить маршрут<svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+{{> footer}}
+{{> overlays}}
+</body>
+</html>

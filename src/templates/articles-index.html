@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+{{> head}}
+<script type="application/ld+json">{{jsonld}}</script>
+</head>
+<body class="page-journal">
+{{> sprite}}
+{{> header}}
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <nav aria-label="Хлебные крошки"><ol class="crumbs" style="list-style:none;padding:0;margin:0">
+        <li><a href="../index.html">Главная</a></li>
+        <li aria-current="page">Журнал</li>
+      </ol></nav>
+      <h1 class="page-title">Журнал <em class="gold-text">красоты</em></h1>
+      <p class="lead" style="margin:0 auto">Статьи мастеров «Мастерской красоты» из Реутова: уход за волосами, ногтями и кожей, массаж, гирудотерапия и хиджама — честно и по делу.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:20px">
+    <div class="container split split--rev">
+      <div class="flipcal-col">
+        <div class="flipcal" id="journal-cal" data-flipcal aria-roledescription="отрывной календарь" aria-label="Статьи журнала">
+          <div class="flipcal__hanger" aria-hidden="true">
+            <svg viewBox="0 0 600 74" preserveAspectRatio="none"><path d="M60 72 300 10 540 72" fill="none" stroke="#7a6a4c" stroke-width="1.6" vector-effect="non-scaling-stroke"/><circle cx="300" cy="10" r="7" fill="url(#goldGrad)"/><circle cx="300" cy="10" r="2.5" fill="#3a2c12"/></svg>
+          </div>
+          <div class="flipcal__board">
+            <div class="flipcal__binding"><span class="flipcal__label">Журнал красоты · {{year}}</span></div>
+            <div class="flipcal__rings" aria-hidden="true"></div>
+            <div class="flipcal__stack" aria-live="polite">
+              {{journal_pages}}
+            </div>
+          </div>
+          <div class="flipcal__controls">
+            <button class="flipcal__btn" type="button" data-flip-prev aria-label="Предыдущий лист"><svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+            <span class="flipcal__counter" data-flip-counter></span>
+            <button class="flipcal__btn" type="button" data-flip-next aria-label="Следующий лист"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+          <p class="flipcal__hint">Нажмите на лист, чтобы перевернуть</p>
+        </div>
+      </div>
+      <div class="split__aside">
+        <span class="eyebrow">Рубрики</span>
+        <div class="cal-tabs" role="tablist" aria-label="Статьи" data-flip-tabs="journal-cal">
+          {{journal_tabs}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="all-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>Все материалы</span>
+          <h2 class="h2" id="all-title" data-reveal style="--i:1">Статьи <em class="gold-text">журнала</em></h2>
+        </div>
+      </div>
+      <div class="cards">
+        {{all_cards}}
+      </div>
+    </div>
+  </section>
+</main>
+
+{{> footer}}
+{{> overlays}}
+</body>
+</html>

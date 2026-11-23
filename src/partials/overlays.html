@@ -1,0 +1,30 @@
+<button class="fab" type="button" data-callback-open data-fab aria-label="Заказать обратный звонок">
+  <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+  <span class="fab__tip">Обратный звонок</span>
+</button>
+
+<div class="dock" data-dock>
+  <a class="btn btn--sm" href="tel:{{phone_href}}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить</a>
+  <button class="btn btn--gold btn--sm" type="button" data-book>Онлайн-запись</button>
+</div>
+
+<dialog class="modal" id="booking-modal" aria-labelledby="booking-modal-title">
+  <div class="panel">
+    <button class="modal__close" type="button" data-close aria-label="Закрыть"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <span class="eyebrow">Онлайн-запись</span>
+    <h2 class="modal__title" id="booking-modal-title">Запись в «Мастерскую красоты»</h2>
+    <div data-booking-modal></div>
+  </div>
+</dialog>
+
+<dialog class="modal modal--sm" id="callback-modal" aria-labelledby="callback-modal-title">
+  <div class="panel">
+    <button class="modal__close" type="button" data-close aria-label="Закрыть"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <span class="eyebrow">Обратный звонок</span>
+    <h2 class="modal__title" id="callback-modal-title">Перезвоним и ответим на вопросы</h2>
+    <p class="muted" style="margin-bottom:22px">Оставьте номер — администратор свяжется с вами, подберёт услугу и удобное время.</p>
+    {{> callback-form:modal}}
+  </div>
+</dialog>
+
+<div class="toast" role="status" aria-live="polite" data-toast></div>

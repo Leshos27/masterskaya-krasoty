@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+{{> head}}
+<meta property="article:published_time" content="{{date_iso}}">
+<meta property="article:section" content="{{category}}">
+<meta name="keywords" content="{{keywords}}">
+<script type="application/ld+json">{{jsonld}}</script>
+</head>
+<body class="page-article">
+{{> sprite}}
+{{> header}}
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <nav aria-label="Хлебные крошки"><ol class="crumbs" style="list-style:none;padding:0;margin:0">
+        <li><a href="../index.html">Главная</a></li>
+        <li><a href="index.html">Журнал</a></li>
+        <li aria-current="page">{{category}}</li>
+      </ol></nav>
+      <h1 class="page-title">{{title_html}}</h1>
+      <div class="page-meta">
+        <span><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><time datetime="{{date_iso}}">{{date_human}}</time></span>
+        <span><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>{{read_time}}</span>
+        <span><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>{{city}}, {{street}}</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="sheet-wrap">
+      <div class="flipcal__binding"><span class="flipcal__label">Журнал красоты · {{date_short}}</span></div>
+      <div class="flipcal__rings" aria-hidden="true" data-static-rings></div>
+      <article class="sheet" data-sheet>
+        <div class="flipcal__holes" aria-hidden="true" data-static-holes></div>
+        <div class="prose">
+          {{body}}
+        </div>
+        <div class="sheet__end" aria-hidden="true"><svg fill="none" stroke="currentColor"><use href="#i-flourish"/></svg></div>
+      </article>
+    </div>
+
+    <aside class="article-cta">
+      <div>
+        <span class="eyebrow">Онлайн-запись</span>
+        <h3 style="margin-top:14px">{{cta_title}}</h3>
+        <p>{{city}}, {{street}} · {{hours}}</p>
+      </div>
+      <button class="btn btn--gold" type="button" data-book="{{category_id}}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Записаться</button>
+    </aside>
+
+    <nav class="pager" aria-label="Другие статьи">
+      <a class="prev" href="{{prev_slug}}.html" data-flip-link><small><svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg>Предыдущий лист</small><b>{{prev_title}}</b></a>
+      <a class="next" href="{{next_slug}}.html" data-flip-link><small>Следующий лист<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></small><b>{{next_title}}</b></a>
+    </nav>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>Читайте также</span>
+          <h2 class="h2" data-reveal style="--i:1">Ещё из <em class="gold-text">журнала</em></h2>
+        </div>
+        <a class="btn" href="index.html" data-reveal style="--i:2">Все статьи<svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="cards">
+        {{related}}
+      </div>
+    </div>
+  </section>
+</main>
+
+{{> footer}}
+{{> overlays}}
+</body>
+</html>

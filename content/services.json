@@ -1,0 +1,114 @@
+{
+  "_comment": "Единый источник услуг и цен. После правки запустите: python3 build.py — обновятся прайс-календарь на главной и онлайн-запись. ЦЕНЫ ОРИЕНТИРОВОЧНЫЕ — замените на реальные.",
+  "categories": [
+    {
+      "id": "hair",
+      "title": "Стрижки и укладки",
+      "short": "Стрижки",
+      "roman": "I",
+      "icon": "scissors",
+      "lead": "Женские, мужские и детские стрижки, окрашивание любой сложности и укладки к событию.",
+      "services": [
+        { "name": "Женская стрижка", "price": 1800, "from": true, "duration": 60 },
+        { "name": "Мужская стрижка", "price": 1000, "from": true, "duration": 45 },
+        { "name": "Детская стрижка", "price": 800, "from": true, "duration": 30 },
+        { "name": "Укладка", "price": 1500, "from": true, "duration": 45 },
+        { "name": "Окрашивание в один тон", "price": 3500, "from": true, "duration": 120 },
+        { "name": "Сложное окрашивание", "price": 6500, "from": true, "duration": 210 },
+        { "name": "Уход и восстановление волос", "price": 2500, "from": true, "duration": 60 }
+      ]
+    },
+    {
+      "id": "manicure",
+      "title": "Маникюр",
+      "short": "Маникюр",
+      "roman": "II",
+      "icon": "polish",
+      "lead": "Аккуратная обработка, стойкое покрытие и дизайн — от нюда до праздничного декора.",
+      "services": [
+        { "name": "Маникюр без покрытия", "price": 900, "from": true, "duration": 45 },
+        { "name": "Маникюр с покрытием гель-лак", "price": 1900, "from": true, "duration": 90 },
+        { "name": "Укрепление ногтей", "price": 2300, "from": true, "duration": 105 },
+        { "name": "Наращивание ногтей", "price": 2800, "from": true, "duration": 150 },
+        { "name": "Мужской маникюр", "price": 1000, "from": true, "duration": 45 },
+        { "name": "Снятие покрытия", "price": 300, "from": true, "duration": 15 }
+      ]
+    },
+    {
+      "id": "pedicure",
+      "title": "Педикюр",
+      "short": "Педикюр",
+      "roman": "III",
+      "icon": "foot",
+      "lead": "Аппаратный и классический педикюр, работа со стопой и деликатное покрытие.",
+      "services": [
+        { "name": "Педикюр аппаратный", "price": 1800, "from": true, "duration": 60 },
+        { "name": "Педикюр с покрытием гель-лак", "price": 2500, "from": true, "duration": 90 },
+        { "name": "Обработка пальцев с покрытием", "price": 1600, "from": true, "duration": 60 },
+        { "name": "Мужской педикюр", "price": 2000, "from": true, "duration": 75 },
+        { "name": "Работа с трещинами и натоптышами", "price": 600, "from": true, "duration": 20 }
+      ]
+    },
+    {
+      "id": "massage",
+      "title": "Массажный кабинет",
+      "short": "Массаж",
+      "roman": "IV",
+      "icon": "stones",
+      "lead": "Классический, лимфодренажный, антицеллюлитный и расслабляющий массаж в отдельном кабинете.",
+      "services": [
+        { "name": "Массаж спины", "price": 1500, "from": true, "duration": 30 },
+        { "name": "Шейно-воротниковая зона", "price": 1200, "from": true, "duration": 20 },
+        { "name": "Общий классический массаж", "price": 3000, "from": true, "duration": 60 },
+        { "name": "Лимфодренажный массаж", "price": 2500, "from": true, "duration": 60 },
+        { "name": "Антицеллюлитный массаж", "price": 2000, "from": true, "duration": 45 },
+        { "name": "Расслабляющий массаж", "price": 2800, "from": true, "duration": 60 }
+      ]
+    },
+    {
+      "id": "hirudo",
+      "title": "Гирудотерапия",
+      "short": "Пиявки",
+      "roman": "V",
+      "icon": "jar",
+      "lead": "Лечение медицинскими пиявками с биофабрики. Только одноразовое применение, после консультации специалиста.",
+      "medical": true,
+      "services": [
+        { "name": "Консультация гирудотерапевта", "price": 500, "from": true, "duration": 20 },
+        { "name": "Сеанс гирудотерапии (до 5 пиявок)", "price": 2000, "from": true, "duration": 60 },
+        { "name": "Сеанс гирудотерапии (до 10 пиявок)", "price": 3500, "from": true, "duration": 90 },
+        { "name": "Гирудотерапия в косметологии (лицо)", "price": 2500, "from": true, "duration": 60 }
+      ]
+    },
+    {
+      "id": "hijama",
+      "title": "Хиджама",
+      "short": "Хиджама",
+      "roman": "VI",
+      "icon": "cups",
+      "lead": "Традиционное баночное кровопускание: вакуумные банки и стерильные одноразовые инструменты.",
+      "medical": true,
+      "services": [
+        { "name": "Хиджама — сеанс (до 5 банок)", "price": 2500, "from": true, "duration": 60 },
+        { "name": "Хиджама — расширенный сеанс", "price": 3500, "from": true, "duration": 90 },
+        { "name": "Вакуумный (сухой) массаж банками", "price": 1500, "from": true, "duration": 40 }
+      ]
+    },
+    {
+      "id": "cosmetology",
+      "title": "Косметология",
+      "short": "Косметология",
+      "roman": "VII",
+      "icon": "serum",
+      "lead": "Чистки, пилинги, уходовые программы, массаж лица и оформление бровей.",
+      "services": [
+        { "name": "Комбинированная чистка лица", "price": 3000, "from": true, "duration": 90 },
+        { "name": "Пилинг (поверхностный)", "price": 2500, "from": true, "duration": 45 },
+        { "name": "Уходовая программа для лица", "price": 2800, "from": true, "duration": 60 },
+        { "name": "Альгинатная маска", "price": 1200, "from": true, "duration": 30 },
+        { "name": "Массаж лица", "price": 1800, "from": true, "duration": 40 },
+        { "name": "Коррекция и окрашивание бровей", "price": 900, "from": true, "duration": 40 }
+      ]
+    }
+  ]
+}
