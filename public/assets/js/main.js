@@ -905,7 +905,49 @@
     });
   }
 
+  /* ---------------- онлайн-запись через ClickTak ----------------
+     Если в content/site.json задан clicktak.url, запись идёт в ClickTak: реальные свободные окна,
+     журнал администратора, напоминания клиенту. Иначе работает встроенная форма сайта (ниже). */
+  const CT = SITE.clicktak && SITE.clicktak.url && SITE.clicktak.business ? SITE.clicktak : null;
+  const ctBookUrl = (service) => CT && `${CT.url}/b/${encodeURIComponent(CT.business)}/book?src=site&embed=1&theme=dark${service ? `&service=${service}` : ''}`;
+
+  function clickTakWidget() {
+    if (!CT) return;
+    const s = document.createElement('script');
+    s.src = `${CT.url}/widget.js`;
+    s.async = true;
+    s.dataset.business = CT.business;
+    s.dataset.theme = 'dark';
+    s.dataset.color = CT.color || '#c9a45c';
+    s.dataset.button = 'false';
+    document.body.appendChild(s);
+  }
+
+  function clickTakInline(host) {
+    host.classList.add('ct-frame');
+    host.innerHTML = `<p class="ct-frame__wait">Загружаем свободное время…</p><noscript><p>Для онлайн-записи включите JavaScript или позвоните нам: <a href="tel:${esc(SITE.phone_href || '')}">${esc(SITE.phone || '')}</a>.</p></noscript>`;
+    const load = () => {
+      if (host.dataset.loaded) return;
+      host.dataset.loaded = '1';
+      const f = document.createElement('iframe');
+      f.src = ctBookUrl();
+      f.title = 'Онлайн-запись';
+      f.allow = 'clipboard-write';
+      f.addEventListener('load', () => host.classList.add('is-loaded'));
+      host.appendChild(f);
+    };
+    if (!('IntersectionObserver' in window)) return load();
+    const io = new IntersectionObserver(([en]) => { if (en.isIntersecting) { load(); io.disconnect(); } }, { rootMargin: '600px 0px' });
+    io.observe(host);
+  }
+
   function openBooking(cat, svc) {
+    if (CT) {
+      const service = (CT.services || {})[cat] || '';
+      if (window.ClickTak) window.ClickTak.open({ service });
+      else window.open(ctBookUrl(service).replace('&embed=1', ''), '_blank', 'noopener');
+      return;
+    }
     const section = document.getElementById('booking');
     if (inlineBooking && section) {
       inlineBooking.preselect(cat, svc);
@@ -981,7 +1023,10 @@
   dialogs();
   delegates();
   const bookingHost = $('[data-booking]');
-  if (bookingHost && SERVICES.length) inlineBooking = new Booking(bookingHost);
+  if (CT) {
+    clickTakWidget();
+    if (bookingHost) clickTakInline(bookingHost);
+  } else if (bookingHost && SERVICES.length) inlineBooking = new Booking(bookingHost);
   lazyMap();
   pageTransitions();
 })();

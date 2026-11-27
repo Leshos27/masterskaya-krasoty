@@ -23,5 +23,12 @@
   "area_served": ["Реутов", "Новокосино", "Новогиреево", "Балашиха", "Железнодорожный"],
   "booking_endpoint": "api/send.php",
   "demo": true,
+  "clicktak": {
+    "url": "",
+    "business": "masterskaya-krasoty",
+    "color": "#c9a45c",
+    "services": { "hair": null, "manicure": null, "pedicure": null, "massage": null, "hirudo": null, "hijama": null, "cosmetology": null }
+  },
+  "_clicktak_note": "Онлайн-запись через ClickTak. url — адрес сервера ClickTak (например https://clicktak.ru), business — короткое имя салона в ClickTak. Пока url пустой, работает встроенная форма сайта. services — номер услуги ClickTak для каждого раздела (кнопка «Записаться» у раздела сразу откроет эту услугу); null — клиент выберет услугу сам.",
   "_demo_note": "true = заявки не отправляются на сервер (режим предпросмотра). На хостинге с PHP поставьте false и заполните public/api/config.php"
 }

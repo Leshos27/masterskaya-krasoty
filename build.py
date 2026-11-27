@@ -403,8 +403,24 @@ def write(rel, content):
     print(f"  ✓ {rel}")
 
 
+def clicktak():
+    """Настройки ClickTak, если онлайн-запись подключена (задан адрес сервера и имя салона)."""
+    ct = SITE.get("clicktak") or {}
+    url = str(ct.get("url") or "").strip().rstrip("/")
+    business = str(ct.get("business") or "").strip()
+    if not url or not business:
+        return None
+    if not url.startswith("https://") and not url.startswith("http://localhost"):
+        sys.exit("clicktak.url в content/site.json должен начинаться с https://")
+    services = {k: int(v) for k, v in (ct.get("services") or {}).items() if v}
+    return {"url": url, "business": business, "color": ct.get("color") or "#c9a45c", "services": services}
+
+
 def write_data_js():
     site = {k: SITE[k] for k in ("name", "phone", "phone_href", "address_short", "street", "city", "hours", "open", "close", "booking_endpoint", "demo", "telegram", "whatsapp")}
+    ct = clicktak()
+    if ct:
+        site["clicktak"] = ct
     services = [
         {"id": c["id"], "title": c["title"], "short": c["short"], "medical": bool(c.get("medical")),
          "services": [{"name": s["name"], "price": s["price"], "from": bool(s.get("from")), "duration": s["duration"]} for s in c["services"]]}
@@ -446,6 +462,12 @@ def build_pages():
         journal_pages=journal_pages("articles/"),
         journal_list=journal_list(),
         faq_items=faq_items(),
+        booking_lead=(
+            "Выберите услугу, мастера и свободное время — запись сразу попадёт в журнал салона, "
+            "а подтверждение и напоминание придут вам в Telegram."
+            if clicktak() else
+            "Выберите услугу, дату и время — администратор перезвонит, чтобы подтвердить визит и ответить на вопросы."
+        ),
     )
     write("index.html", render((SRC / "pages" / "index.html").read_text("utf-8"), ctx))
 
